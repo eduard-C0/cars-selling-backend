@@ -13,7 +13,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       options: {
         client: {
           clientId: 'car',
-          brokers: ['0.0.0.0:9093'],
+          brokers: ['kafka:9092'],
         },
         consumer: {
           groupId: 'car-consumer'
@@ -26,7 +26,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       name: 'CAR_RABBIT_SERVICE',
       transport: Transport.RMQ,
       options: {
-        urls: ['amqp://0.0.0.0:5672'],
+        urls: ['amqp://rabbitmq:5672'],
         queue: "cars_queue",
         queueOptions: {
           durable: false
